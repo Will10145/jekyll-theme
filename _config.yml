@@ -1,5 +1,5 @@
-title: tonic-starter
-description: ""
+title: "Dots Background"
+description: "A jekyll theme with moving dots"
 encoding: utf-8
 
 exclude: ["README.md", "LICENSE", "*.gem", "*.gemspec", "Gemfile.lock"]

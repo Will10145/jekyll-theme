@@ -1,0 +1,47 @@
+// ================================
+// CSS CUSTOM PROPERTIES & VARIABLES
+// ================================
+
+:root {
+  // Color System
+  --color-dark-bg: #0c0e10;
+  --color-light-bg: #f7fafc;
+  --color-white: #ffffff;
+  --color-dark-text: #222222;
+  --color-accent-blue: #7dd3fc;
+  --color-accent-yellow: #fbbf24;
+  --color-sidebar-bg: rgba(24, 27, 31, 0.72);
+  --color-sidebar-dark: #181b1f;
+  
+  // Typography
+  --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  // Animations & Transitions
+  --easing-smooth: cubic-bezier(.4, 0, .2, 1);
+  --transition-base: 0.2s var(--easing-smooth);
+  --transition-slow: 0.4s var(--easing-smooth);
+  
+  // Shadows
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.13);
+  
+  // Z-Index Scale
+  --z-sidebar: 3000;
+  --z-overlay: 4000;
+  --z-controls: 4100;
+  
+  // Breakpoints (for reference)
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-mobile-max: 700px;
+  --bp-mobile-small: 400px;
+}
+
+// SCSS Variables for calculations
+$sidebar-width: 270px;
+$sidebar-padding: 1.2rem;
+$button-size-large: 60px;
+$button-size-medium: 56px;
+$button-size-small: 48px;

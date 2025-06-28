@@ -1,0 +1,62 @@
+// ================================
+// BASE STYLES & TYPOGRAPHY
+// ================================
+
+// Base body styles
+body {
+  background-color: var(--color-dark-bg);
+  font-family: var(--font-system);
+  @include smooth-transition(background-color);
+  
+  &.light-mode {
+    background-color: var(--color-light-bg);
+  }
+}
+
+// Typography
+p {
+  font-size: 1.05rem;
+  margin-bottom: 1em;
+  font-weight: 400;
+  font-family: inherit;
+  color: inherit;
+  letter-spacing: 0;
+}
+
+h1 {
+  color: var(--color-white);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: var(--font-system);
+  margin: 1rem 0;
+  @include smooth-transition(color);
+}
+
+// Responsive typography
+.heading-hero {
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-white);
+  }
+  
+  @include breakpoint('sm') {
+    font-size: 3.75rem;
+  }
+  
+  @include breakpoint('md') {
+    font-size: 3.75rem;
+  }
+  
+  @include breakpoint('lg') {
+    font-size: 6rem;
+  }
+}
+
+// Light mode typography overrides
+body.light-mode {
+  .heading-hero {
+    color: var(--color-dark-text);
+    @include smooth-transition(color);
+  }
+}

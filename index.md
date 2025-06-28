@@ -1,7 +1,4 @@
 ---
-layout: default
+layout: blog
+title: "My Blog"
 ---
-
-# Dots Background
-
-Hello!

@@ -1,0 +1,181 @@
+// ================================
+// SIDEBAR COMPONENT
+// ================================
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: $sidebar-width;
+  background: var(--color-sidebar-bg);
+  @include backdrop-blur;
+  color: var(--color-white);
+  font-family: var(--font-system);
+  font-weight: 700;
+  font-size: 1.15rem;
+  box-shadow: var(--shadow-strong);
+  border-right: 1.5px solid rgba(125, 211, 252, 0.13);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  transform: translateX(-100%);
+  @include smooth-transition(transform);
+  transition-duration: 0.38s;
+  z-index: var(--z-sidebar);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 3.8rem $sidebar-padding 110px $sidebar-padding;
+  gap: $sidebar-padding;
+  overflow-y: auto;
+  max-height: 100vh;
+
+  &.open {
+    transform: translateX(0);
+
+    .sidebar-light-mode-btn {
+      display: flex;
+    }
+  }
+
+  &-header {
+    display: none;
+  }
+
+  &-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+
+    a {
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: 1.07rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      @include smooth-transition(color, background, box-shadow);
+      opacity: 0.96;
+      background: transparent;
+      box-shadow: none;
+      letter-spacing: -0.01em;
+
+      @include hover-focus {
+        color: var(--color-accent-blue);
+        background: rgba(125, 211, 252, 0.13);
+        box-shadow: 0 2px 8px 0 rgba(125, 211, 252, 0.08);
+      }
+
+      &#sidebar-light-mode-link {
+        color: var(--color-accent-blue);
+        text-align: left;
+        padding-left: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        display: block;
+
+        @include hover-focus {
+          color: var(--color-accent-yellow);
+          background: rgba(125, 211, 252, 0.10);
+        }
+      }
+    }
+  }
+
+  // Close button (hidden, using menu button for toggle)
+  &-close-btn {
+    @include circular-button(44px);
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background: rgba(24, 27, 31, 0.92);
+    border: 2px solid var(--color-accent-blue);
+    color: var(--color-accent-blue);
+    font-size: 2rem;
+    display: none !important; // Hidden, using menu button for toggle
+    z-index: var(--z-controls);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+    @include hover-focus {
+      background: var(--color-accent-blue);
+      color: var(--color-sidebar-dark);
+      border-color: var(--color-white);
+    }
+  }
+}
+
+// Light mode overrides
+body.light-mode {
+  .sidebar {
+    &-close-btn {
+      background: var(--color-white);
+      color: var(--color-accent-yellow);
+      border-color: var(--color-accent-yellow);
+
+      @include hover-focus {
+        background: var(--color-accent-yellow);
+        color: var(--color-white);
+        border-color: var(--color-dark-text);
+      }
+    }
+
+    &-nav a {
+      @include hover-focus {
+        color: var(--color-accent-yellow);
+        background: rgba(251, 191, 36, 0.13);
+        box-shadow: 0 2px 8px 0 rgba(251, 191, 36, 0.08);
+      }
+
+      &#sidebar-light-mode-link {
+        color: var(--color-accent-yellow);
+
+        @include hover-focus {
+          color: var(--color-accent-blue);
+          background: rgba(251, 191, 36, 0.10);
+        }
+      }
+    }
+  }
+}
+
+// Responsive sidebar styles
+@include breakpoint('mobile-max') {
+  .sidebar {
+    width: 85vw;
+    min-width: 0;
+    max-width: 98vw;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 
+      0 0 0 9999px rgba(0, 0, 0, 0.32), 
+      8px 0 32px 0 rgba(0, 0, 0, 0.13);
+    padding-left: 6vw;
+    padding-right: 6vw;
+    padding-top: 3.8rem;
+  }
+
+  .sidebar-light-mode-btn {
+    left: 16px;
+    bottom: 16px;
+    width: $button-size-medium;
+    height: $button-size-medium;
+  }
+}
+
+@include breakpoint('mobile-small') {
+  .sidebar {
+    width: 100vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .sidebar-light-mode-btn {
+    left: 8px;
+    bottom: 8px;
+    width: $button-size-small;
+    height: $button-size-small;
+  }
+}

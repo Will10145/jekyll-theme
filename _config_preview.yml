@@ -1,0 +1,61 @@
+# Preview Configuration for Jekyll Theme
+# This file extends the main _config.yml with preview-specific settings
+
+# Site information
+title: "Modern Blog Theme - Preview"
+description: "A modern Jekyll theme with project-card style layout and animated backgrounds"
+author: "Theme Developer"
+email: "developer@example.com"
+url: "http://localhost:4000"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+encoding: utf-8
+permalink: /:year/:month/:day/:title/
+
+# Theme settings
+theme_color: "#667eea"
+background_animation: true
+card_layout: true
+
+# Navigation
+nav_links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+
+# Social links (optional)
+social:
+  github: "your-github-username"
+  twitter: "your-twitter-username"
+  linkedin: "your-linkedin-username"
+
+# Blog settings
+show_excerpts: true
+posts_per_page: 6
+featured_image_default: "/assets/images/default-post.jpg"
+
+# Development settings
+livereload: true
+incremental: true
+show_drafts: true
+
+# Exclude files from build
+exclude:
+  - "README.md"
+  - "LICENSE"
+  - "*.gem"
+  - "*.gemspec"
+  - "Gemfile.lock"
+  - "node_modules"
+  - "vendor"
+  - "*.log"
+  - ".sass-cache"
+  - "_site"
+  - "SCSS_OPTIMIZATION.md"
+  - "BLOG_CARDS_GUIDE.md"
+  - "PREVIEW_GUIDE.md"
+  - "preview.sh"

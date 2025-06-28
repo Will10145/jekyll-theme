@@ -1,7 +1,20 @@
-body {
-  background-color: #595772;
-  font-family: sans-serif;
-  margin: auto;
-  max-width: 70ch;
-  color: #2f2e44;
-}
+// ================================
+// OPTIMIZED JEKYLL THEME STYLES
+// ================================
+// Main stylesheet that imports all modular components
+// for better organization and maintainability
+
+// Import order matters - variables and mixins first
+@import 'variables';
+@import 'mixins';
+
+// Base styles and typography
+@import 'typography';
+
+// Component styles
+@import 'buttons';
+@import 'sidebar';
+@import 'blog-cards';
+
+// Utilities and helpers
+@import 'utilities';

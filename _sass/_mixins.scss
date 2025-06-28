@@ -1,0 +1,74 @@
+// ================================
+// MIXINS & UTILITY FUNCTIONS
+// ================================
+
+// Button base styles mixin
+@mixin button-base {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: 
+    background var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+// Responsive breakpoint mixin
+@mixin breakpoint($size) {
+  @if $size == 'sm' {
+    @media (min-width: 640px) { @content; }
+  } @else if $size == 'md' {
+    @media (min-width: 768px) { @content; }
+  } @else if $size == 'lg' {
+    @media (min-width: 1024px) { @content; }
+  } @else if $size == 'mobile-max' {
+    @media (max-width: 700px) { @content; }
+  } @else if $size == 'mobile-small' {
+    @media (max-width: 400px) { @content; }
+  }
+}
+
+// Focus styles mixin for accessibility
+@mixin focus-styles($color: var(--color-accent-blue)) {
+  &:focus {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+  }
+}
+
+// Backdrop blur mixin
+@mixin backdrop-blur($blur: 18px, $saturation: 1.2) {
+  backdrop-filter: blur($blur) saturate($saturation);
+  -webkit-backdrop-filter: blur($blur) saturate($saturation);
+}
+
+// Flexbox center mixin
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Hover and focus state mixin
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// Circular button mixin
+@mixin circular-button($size: 48px) {
+  @include flex-center;
+  @include button-base;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+// Smooth transition mixin
+@mixin smooth-transition($properties...) {
+  transition: #{$properties} var(--transition-base);
+}
